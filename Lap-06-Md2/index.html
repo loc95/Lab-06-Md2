@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="./css/modal.css" />
+    <link type="text/css" rel="stylesheet" href="./css/menu.css" />
+  </head>
+  <body>
+    <ul id="menu">
+      <li
+        class="menu-item active"
+        onmouseover="hoverMenuItem(this)"
+        onmouseout="outMenuItem(this)"
+      >
+        Trang chủ
+      </li>
+      <li
+        class="menu-item"
+        onmouseover="hoverMenuItem(this)"
+        onmouseout="outMenuItem(this)"
+      >
+        Giới Thiệu
+      </li>
+      <li
+        class="menu-item"
+        onmouseover="hoverMenuItem(this)"
+        onmouseout="outMenuItem(this)"
+      >
+        Bài Viết
+      </li>
+      <li
+        class="menu-item"
+        onmouseover="hoverMenuItem(this)"
+        onmouseout="outMenuItem(this)"
+      >
+        Liên Lạc
+      </li>
+      <span class="search-form"
+        ><input
+          class="search-input"
+          placeholder="Tìm kiếm.."
+          type="text"
+          name="search"
+          id="search"
+      /></span>
+    </ul>
+    <main>
+      <h1>Ví dụ thao tác JavaScript với HTML, CSS</h1>
+      <p>Nội dung đang được cập nhật...</p>
+      <button
+        id="loginBtn"
+        type="button"
+        onclick="document.getElementById('loginModal').style.display='block'"
+      >
+        Đăng nhập
+      </button>
+
+      <div id="loginModal" class="modal">
+        <form class="modal-content animate" action="#" method="post">
+          <div class="imgcontainer">
+            <span
+              onclick="document.getElementById('loginModal').style.display='none'"
+              class="close"
+              title="Close Modal"
+              >&times;</span
+            >
+            <img
+              src="https://www.w3schools.com/w3images/avatar2.png"
+              alt="Avatar"
+              class="avatar"
+              width="250"
+            />
+          </div>
+
+          <div class="container">
+            <label for="uname"><b>Tài khoản</b></label>
+            <input
+              type="text"
+              placeholder="Nhập tài khoản"
+              name="uname"
+              required
+            />
+
+            <label for="psw"><b>Mật khẩu</b></label>
+            <input
+              type="password"
+              placeholder="Nhập mật khẩu"
+              name="psw"
+              required
+            />
+
+            <button id="loginModalBtn" type="button" onclick="login()">
+              Đăng nhập
+            </button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" />
+              Nhớ đó?
+            </label>
+          </div>
+
+          <div class="container" style="background-color: #f1f1f1">
+            <button
+              type="button"
+              onclick="document.getElementById('loginModal').style.display='none'"
+              class="cancelbtn"
+            >
+              Hủy nha
+            </button>
+            <span class="psw">Quên <a href="#">mật khẩu hả?</a></span>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      function hoverMenuItem(tag) {
+        tag.style.backgroundColor = "#f2f2f2";
+        tag.style.color = "black";
+      }
+
+      function outMenuItem(tag) {
+        var activeClass = tag.classList[1];
+        if (activeClass === "active") {
+          tag.style.backgroundColor = "#1fc61f";
+          tag.style.color = "white";
+        } else {
+          tag.style.backgroundColor = "black";
+          tag.style.color = "white";
+        }
+      }
+
+      function login() {
+        var username = document.getElementsByName("uname")[0].value;
+        var password = document.getElementsByName("psw")[0].value;
+
+        if (username === "admin" && password === "123456") {
+          alert("Đăng nhập thành công rồi đó");
+          document.getElementById("loginModal").style.display = "none";
+        } else {
+          alert("Sai in4 đăng nhập ! xin nhập lại nhé");
+        }
+      }
+    </script>
+  </body>
+</html>
